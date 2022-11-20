@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Hidden Message Tool</title>
+		<meta charset="utf-8"/>
+		<script src="./index.js"></script>
+		<style src="./index.css">
+		
+		</style>
+	</head>
+	<body onloadend = "dereset(); enreset();">
+		<table>
+			<tr><th><h1>Hidden Message Tool</h1></th></tr>
+		</table>
+		<table style="margin:0; border: none; background: none;"><tbody><tr>
+			<td style=" vertical-align: top;"><form action="#" oninput="enforminput(enoutput, enfs, charcount, enkey);" id="encodingForm"><table>
+				<tr><th><h1 style="margin-bottom: 0;">Encoding</h1></th></tr>
+				<tr><td><div class="resetdiv"><button class="resetbtn" type="button" onclick="enreset()">
+					<h3>Reset</h3>
+				</button></div></td></tr>
+				<tr><td><div class="autodiv"><button class="autobtn" type="button" onclick="benchmark(true)">
+					<h3>Bench</h3>
+				</button></div></td></tr>
+				<tr><td style="display: flex; align-items: center;">
+					<h2 style="">Key:</h2>
+					<div class="textdiv" style="height: 2em; margin: 0;">
+						<textarea class="thearea" style="height: 1em;" id="enkey" name="enkey"></textarea>
+					</div>
+				</td></tr>
+				<tr>
+					<td><button onclick="eninsbefore(enfs)" type="button" style="width: 100%;">
+						<h2>Add Layer Above</h2>
+					</button></td>
+				</tr>
+				<tr><td><fieldset name="enfs">
+					<div class="textdiv">
+						<textarea class="thearea"></textarea>
+						<button type="button" class="rembutton" onclick="this.parentElement.remove(); document.getElementById('encodingForm').dispatchEvent(new Event('input'));">
+							<svg height="70" width="70">
+							    <defs>
+									<radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+										<stop offset="0%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+										<stop offset="100%" style="stop-color:rgb(127,0,0);stop-opacity:1" />
+									</radialGradient>
+								</defs>
+								<path d="M20 5 L 5 20 L 20 35 L 5 50 L 20 65 L 35 50 L 50 65 L 65 50 L 50 35 L 65 20 L 50 5 L 35 20 Z" stroke="black" stroke-width="4" fill="url(#grad1)" />
+								Remove
+							</svg>
+						</button>
+					</div>
+				</fieldset></td></tr>
+				<tr>
+					<td><button onclick="eninsafter(enfs)" type="button" style="width: 100%;">
+						<h2>Add Layer Below</h2>
+					</button></td>
+				</tr>
+				<tr><td>
+					
+						<div class="textdiv" readonly>
+							<textarea class="thearea" id="enoutput" name="enoutput" readonly></textarea>
+						</div>
+					<div class="copydiv">
+						<button onclick="copyToClipboard(document.getElementById('enoutput'))" type="button" class="copybtn">
+							<h2>Click to Copy</h2>
+						</button>
+					</div>
+				</td></tr>
+				<tr><td style="display: flex;">
+					<button onclick="benchmark(false); document.getElementById('encodingForm').dispatchEvent(new Event('input'));" type="button" style="width: 100%;">
+						<h2>Optimize</h2>
+					</button>
+					<input type="text" name="charcount" class="charcount" id="charcount" readonly/>
+				</td></tr>
+				<tr>
+					<td><button onclick="toggleautoopt()" type="button" style="width: 100%;">
+						<h2 id="autoopt">Auto-optimize: Off</h2>
+					</button></td>
+				</tr>
+			</table></form></td>
+			<td><div style="margin: 0 1em;"></div></td>
+			<td style=" vertical-align: top;"><form action="#" oninput="deformInput(demessage, defs, dekey);" id="decodingForm"><table>
+				<tr><th><h1 id="dectitle">AutoDecoding</h1></th></tr>
+				<tr><td><div class="resetdiv"><button class="resetbtn" type="button" onclick="dereset()">
+					<h3>Reset</h3>
+				</button></div></td></tr>
+				<tr><td><div class="autodiv"><button class="autobtn" type="button" onclick="deautoToggle()">
+					<h3>Auto</h3>
+				</button></div></td></tr>
+				<tr><td style="display: flex; align-items: center;">
+					<h2 style="">Key:</h2>
+					<div class="textdiv" style="height: 2em; margin: 0;">
+						<textarea class="thearea" style="height: 1em;" id="dekey" name="dekey"></textarea>
+					</div>
+				</td></tr>
+				<tr><td>
+					<div class="textdiv">
+						<textarea class="thearea" id="demessage" name="demessage"></textarea>
+					</div>
+				</td></tr>
+				<tr><td><fieldset name="defs">
+					<div class="textdiv" readonly>
+						<textarea class="thearea" id="deoutput" name="deoutput" readonly></textarea>
+						<button type="button" class="rembutton" onclick="this.parentElement.remove();">
+							<svg height="70" width="70">
+							    <defs>
+									<radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+										<stop offset="0%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+										<stop offset="100%" style="stop-color:rgb(127,0,0);stop-opacity:1" />
+									</radialGradient>
+								</defs>
+								<path d="M20 5 L 5 20 L 20 35 L 5 50 L 20 65 L 35 50 L 50 65 L 65 50 L 50 35 L 65 20 L 50 5 L 35 20 Z" stroke="black" stroke-width="4" fill="url(#grad1)" />
+								Remove
+							</svg>
+						</button>
+					</div>
+					<div class="copydiv">
+						<button onclick="copyToClipboard(document.getElementById('enoutput'))" type="button" class="copybtn">
+							<h2>Click to Copy</h2>
+						</button>
+					</div>
+				</fieldset></td></tr>
+				<tr>
+					<td><button onclick="deinsafter(defs)" type="button" style="width: 100%;">
+						<h2>Add Layer</h2>
+					</button></td>
+				</tr>
+			</table></form></td>
+		</tr></tbody></table>
+	</body>
+</html>

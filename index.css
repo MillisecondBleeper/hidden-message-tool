@@ -1,0 +1,197 @@
+body {
+	background-color: #555555;
+	margin:2em 5% 2em 5%;
+}
+table {
+	border: 1px solid #282A35;
+	width: 100%;
+	margin-bottom: 2em;
+	border: 2px solid #ccc;
+	border-radius: 8px;
+	background-color: #e8e8e8;
+}
+.textdiv {
+	width: 100%;
+	height: 75px;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 10px;
+	background-color: #f8f8f8;
+	display: flex;
+	margin-bottom: 5px;
+	
+}
+.textdiv[readonly] {
+	background-color: #e8e8e8;
+	border: 2px solid #333;
+}
+.textdiv:has(> textarea){
+	outline:none;
+	border-color: #aaa;
+}
+.thearea {
+	padding: 5px 10px;
+	border: none;
+	margin: 0;
+	background: none;
+	width: 100%;
+	height: 60px;
+	flex: 1;
+	resize: none;
+	font-family: "Times New Roman";
+}
+.thearea[readonly] {
+	background: none;
+	border: none;
+}
+.rembutton {
+	border: none;
+	/*border-left: 2px solid #ccc;*/
+	border-radius: 0;
+	align-items: center;
+	background: none;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+.textdiv[readonly] > .rembutton {
+	border-color :#333;
+}
+.rembutton > h2 {
+	margin: 5px 0 5px; 0;
+}
+th {
+	padding: 5px;
+	color: #303030;
+}
+button {
+	border: 2px solid #ccc;
+	border-radius: 10px;
+	background-color: #f8f8f8;
+	padding-left: 2em;
+	padding-right: 2em;
+	color: #999;
+	
+}
+.copybtn {
+	background: none;
+	margin: 0;
+	padding: 5px;
+	border: none;
+	opacity: 0;
+}
+button:hover {
+	cursor: pointer;
+	opacity: 1;
+	color: #555;
+}
+button:active > * {
+	opacity: 0;
+}
+.copydiv {
+	text-align: center;
+}
+.copybtn {
+	position: absolute;
+	margin-top: -5em;
+	margin-left: -5.7em;
+}
+.copybtn > * {
+	margin: 0;
+	padding: 5px;
+}
+.resetdiv {
+	position: absolute;
+	margin-top: calc(-3em + -7px);
+	margin-left: -5px;
+	background: none;
+	
+}
+.resetbtn {
+	background: none;
+	border-radius: 0 0 10px 0;
+	border-top: none;
+	border-left: none;
+	
+}
+.autodiv {
+	margin-top: calc(-3em + -10px);
+	margin-right: -5px;
+	background: none;
+	float: right;
+	
+}
+.autobtn {
+	background: none;
+	border-radius: 0 0 0 10px;
+	border-top: none;
+	border-right: none;
+	
+}
+input:hover {
+	cursor: pointer;
+}
+textarea:focus-visible {
+	outline:none;
+	border-color: #aaa;
+}
+input:focus-visible {
+	outline: none;
+	cursor: default;
+}
+.charcount {
+	color: #555;
+	text-align:right;
+	background: none
+	; border: none;
+	width: 100%;
+	cursor: default;
+}
+.charcount:hover {
+	cursor: default;
+}
+
+label > input[type="radio"] {
+	position: absolute;
+	width: 1.1rem;
+	height: 1.1rem;
+	opacity: 0;
+	margin: .4rem 0 0 1rem;;
+}
+label > input[type="radio"] + *::before {
+	content: "";
+	display: inline-block;
+	vertical-align: bottom;
+	width: 1rem;
+	height: 1rem;
+	margin-right: 0.3rem;
+	border-radius: 50%;
+	border-style: solid;
+	border-width: 0.1rem;
+	border-color: #777;
+}
+label > input[type="radio"]:checked + * {
+	color: #222;
+}
+label > input[type="radio"]:checked + *::before {
+	background: radial-gradient(#222 0%, #222 44%, transparent 50%, transparent);
+	border-color: #222;
+}
+
+fieldset {
+	border: none;
+	padding: 0;
+}
+label > input[type="radio"] + * {
+	display: inline-block;
+	padding: 0.5rem 1rem;
+	color: #777;
+}
+h1 {
+margin: 0;
+}
+h2 {
+margin: 0;
+}
+.invalid {
+	background-color: #FF5555;
+}
